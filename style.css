@@ -774,77 +774,23 @@ nav ul li a:hover::after {
     transform: scale(1.1) rotate(10deg);
     box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
 }
-
 /* =========================================
-    14. تجاوب الموبايل (المعدل والنهائي)
+   14. تجاوب الموبايل (Mobile Responsive)
    ========================================= */
 @media (max-width: 992px) {
+    /* Header & Nav */
+    .header-container { flex-direction: row; }
+    .header-actions { display: none; }
+    .mobile-menu-btn { display: block; z-index: 1001; }
     
-    .header-container {
-        display: flex;
-        align-items: center;
-        justify-content: center; /* اللوجو هيفضل في النص أو اليمين براحته */
-        position: relative; /* ضروري عشان نثبت الزرار بالنسبة له */
-        min-height: 70px;
-    }
-
-    /* تثبيت زر المنيو في أقصى اليسار بعيداً عن زحمة العناصر */
-    .mobile-menu-btn {
-        display: block !important;
-        position: absolute;
-        left: 20px; /* هنا القوة.. هيثبت في الشمال مهما حصل */
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 1100;
-        cursor: pointer;
-        font-size: 2rem;
-        color: var(--gold-color);
-    }
-
-    /* إخفاء الأكشنز (الدخول واللغة) عشان ميعملوش زحمة في الموبايل */
-    .header-actions {
-        display: none !important; 
-    }
-
-    /* تنسيق القائمة الجانبية - تخرج من اليمين */
     nav ul {
-        position: fixed;
-        top: 0;
-        right: -100%; /* مختفية جهة اليمين */
-        width: 80%; /* عرض القائمة */
-        height: 100vh;
-        background-color: var(--dark-navy); /* أو الأسود #000 */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 25px;
-        transition: 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
-        z-index: 1050;
-        box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+        position: fixed; top: 0; right: -100%;
+        width: 75%; height: 100vh; background-color: #000;
+        flex-direction: column; justify-content: center; align-items: center;
+        transition: 0.4s ease; z-index: 1000;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.5);
     }
-
-    /* لما تضغط على الزرار القائمة تدخل من اليمين للشمال */
-    nav ul.active {
-        right: 0;
-    }
-
-    /* شكل اللوجو في الموبايل عشان ميبقاش لازق في الطرف */
-    .logo {
-        margin-left: auto; /* يدفع اللوجو لليمين في نظام RTL */
-        padding-right: 10px;
-    }
-
-    nav ul li a {
-        font-size: 1.4rem;
-        color: #fff;
-        font-weight: 600;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
-        width: 100%;
-        text-align: center;
-        padding-bottom: 10px;
-    }
-}
+    nav ul.active { right: 0; }
 
     /* Typography */
     .main-title { font-size: 3rem; }
@@ -911,4 +857,3 @@ header.scrolled {
     from { transform: translateY(-100%); }
     to { transform: translateY(0); }
 }
-
